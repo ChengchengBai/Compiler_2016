@@ -34,7 +34,7 @@ typedef struct DynArray
 void dynarray_init(DynArray* ptr, int initsize);			//初始化
 void dynarray_realloc(DynArray* ptr, int new_size);			//重新分配动态数组容量
 void dynarray_add(DynArray* ptr, void* data);				//追加动态数组元素
-void dynarry_free(DynArray* ptr);							//内存释放
+void dynarray_free(DynArray* ptr);							//内存释放
 int dynarray_search(DynArray* ptr, int no);				    //动态数组元素查找
 
 /******************************/
@@ -66,15 +66,15 @@ void *mallocz(int size);							//分配内存
 
 #define MAXKEY 1024
 
-extern TkWord *tk_hashtable[MAXKEY];		//单词哈希表
-extern DynArray tktable;					//单词表放置标识符
-extern DynString tkstr;						//单词字符串
-extern DynString sourcestr;					//单词源字符串
-extern int token;							//单词编码
-extern char ch;								//当前源码字符
-extern int lineno;							//行号
-extern int tkvalue;							//单词值
-extern char filename[1024];					//文件名
+//extern TkWord *tk_hashtable[MAXKEY];		//单词哈希表
+//extern DynArray tktable;					//单词表放置标识符
+//extern DynString tkstr;						//单词字符串
+//extern DynString sourcestr;					//单词源字符串
+//extern int token;							//单词编码
+//extern char ch;								//当前源码字符
+//extern int lineno;							//行号
+//extern int tkvalue;							//单词值
+//extern char filename[1024];					//文件名
 
 
 /*	elf哈希函数计算,对应文件ElfHash.cpp	*/
@@ -129,5 +129,3 @@ void lexical_num();					//解析整型常量
 void lexical_string(char s);		//解析字符串
 void color_token(int lex_state);	//单词着色
 void get_token();					//取单词
-void cleanup();						//清理扫尾
-void init();						//初始化
